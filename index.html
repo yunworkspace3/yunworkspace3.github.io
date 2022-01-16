@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		
+		<title>demo</title>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico">
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+	
+	<body>
+		<div id="app" class="flex-container" v-cloak>
+			<div class="flex-item" v-for="item in data">
+				<div class="custom-card">
+					<div class="inner">
+						<img class="card-img-top" :src="imgSrc(item)">
+					</div>
+					
+					<div class="card-body">
+						<h4 class="card-title">{{ item.primary }} <span class="float-end secondary">{{ item.secondary }}</span></h4>
+						<p class="card-text" v-for="paragraph in item.paragraph">{{ paragraph }}</p>
+						<a v-if="item.url" :href="item.url" target="_blank" class="btn btn-primary">link</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://unpkg.com/vue@3.2.20/dist/vue.global.prod.js"></script>
+		<script src="./js/config.js"></script>
+		<script src="./js/main.js"></script>
+	</body>
+</html>
